@@ -1,0 +1,50 @@
+{
+  "name": "@meltwater/coerce",
+  "version": "0.0.1",
+  "description": "A simple javascript package for type checking an object",
+  "main": "cjs/index.js",
+  "scripts": {
+    "build": "npm run clean && babel src --out-dir cjs/ --copy-files",
+    "clean": "rm -rf cjs",
+    "copy-template": "copy-legion-template -t js -t npm",
+    "docs": "documentation build src/index.js -f md > docs/API.md",
+    "postversion": "git push --follow-tags",
+    "pretest": "check-dependencies && eslint src/",
+    "test": "npm run build && JASMINE_CONFIG_PATH=jasmine.json istanbul cover --handle-sigint jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meltwater/coerce.git"
+  },
+  "keywords": [
+    "types",
+    "convert",
+    "safe"
+  ],
+  "author": "Team Legion <all.legion@meltwater.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/meltwater/coerce/issues"
+  },
+  "homepage": "https://github.com/meltwater/coerce#readme",
+  "devDependencies": {
+    "@meltwater/project-tools-legion": "5.6.0",
+    "babel-cli": "6.26.0",
+    "babel-core": "6.26.3",
+    "babel-minify": "0.5.0",
+    "babel-preset-env": "1.7.0",
+    "documentation": "8.1.2",
+    "eslint": "5.8.0",
+    "is-docker": "1.1.0",
+    "istanbul": "0.4.5",
+    "istanbul-instrumenter-loader": "3.0.1",
+    "jasmine": "3.3.0",
+    "jasmine-core": "3.3.0",
+    "karma": "3.1.1",
+    "karma-chrome-launcher": "2.2.0",
+    "karma-coverage-istanbul-reporter": "2.0.4",
+    "karma-jasmine": "1.1.2",
+    "karma-sourcemap-loader": "0.3.7",
+    "puppeteer": "1.10.0"
+  }
+}

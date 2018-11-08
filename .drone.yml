@@ -1,0 +1,49 @@
+#
+# temporary workaround for this bug:
+#   https://github.com/drone/drone/issues/2390
+clone:
+  git:
+    image: plugins/git:next
+    pull: true
+#
+# end workaround
+#
+
+pipeline:
+  install:
+    image: node:10
+    commands:
+      - echo "//registry.npmjs.org/:_authToken=$${NPM_INSTALL_TOKEN}" > ~/.npmrc
+      - npm install
+    secrets:
+      - npm_install_token
+  test:
+    image: meltwaterlegion/node-headless-chrome
+    commands:
+      - echo "//registry.npmjs.org/:_authToken=$${NPM_INSTALL_TOKEN}" > ~/.npmrc
+      - npm test
+    secrets:
+      - npm_install_token
+  build:
+    image: node:10
+    commands:
+      - echo "//registry.npmjs.org/:_authToken=$${NPM_INSTALL_TOKEN}" > ~/.npmrc
+      - npm run build
+    secrets:
+      - npm_install_token
+    when:
+      event: tag
+  deploy:
+    image: node:10
+    commands:
+      - echo "//registry.npmjs.org/:_authToken=$${NPM_DEPLOY_TOKEN}" > ~/.npmrc
+      - echo "unsafe-perm=true" >> ~/.npmrc
+      - npm publish
+    environment:
+      - BUILD_ENV=production
+    secrets:
+      - npm_deploy_token
+    when:
+      event: tag
+      branch:
+        - include: [ v* ]
