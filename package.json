@@ -6,10 +6,9 @@
   "scripts": {
     "build": "npm run clean && babel src --out-dir cjs/ --copy-files",
     "clean": "rm -rf cjs",
-    "copy-template": "copy-legion-template -t js -t npm",
     "docs": "documentation build src/index.js -f md > docs/API.md",
     "postversion": "git push --follow-tags",
-    "pretest": "check-dependencies && eslint src/",
+    "pretest": "npm outdated && npm audit && eslint src/",
     "test": "npm run build && JASMINE_CONFIG_PATH=jasmine.json istanbul cover --handle-sigint jasmine"
   },
   "repository": {
@@ -28,7 +27,6 @@
   },
   "homepage": "https://github.com/meltwater/coerce#readme",
   "devDependencies": {
-    "@meltwater/project-tools-legion": "5.6.0",
     "babel-cli": "6.26.0",
     "babel-core": "6.26.3",
     "babel-minify": "0.5.0",
