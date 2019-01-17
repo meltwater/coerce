@@ -1,5 +1,6 @@
 # @meltwater/coerce
 
+[![Build Status](https://cloud.drone.io/api/badges/meltwater/coerce/status.svg)](https://cloud.drone.io/meltwater/coerce)
 A simple javascript package for type checking an object
 
 # Install
