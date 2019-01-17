@@ -1,6 +1,6 @@
 {
   "name": "@meltwater/coerce",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A simple javascript package for type checking an object",
   "main": "cjs/index.js",
   "scripts": {
