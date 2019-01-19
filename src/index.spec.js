@@ -1,9 +1,10 @@
 import coerce from './index';
 
+const ERROR_MESSAGE = 'You failing the hardest';
 class FakeClassForTesting {}
 class FailingClassForTesting {
     constructor() {
-        throw new Error('You failing the hardest');
+        throw new Error(ERROR_MESSAGE);
     }
 }
 describe('coerce', () => {
@@ -26,6 +27,14 @@ describe('coerce', () => {
     it('should cast into the type and return Typed version', () => {
         const errorMessage = 'south things have gone';
 
-        expect(() => coerce({}, FailingClassForTesting, errorMessage)).toThrowError(errorMessage);
+        const errorMessageRegex = new RegExp(`${errorMessage}`);
+        expect(() => coerce({}, FailingClassForTesting, errorMessage)).toThrowError(errorMessageRegex);
+    });
+
+    it('should add inner message to error message', () => {
+        const errorMessage = 'south things have gone';
+
+        const errorMessageRegex = new RegExp(`${errorMessage}.*${ERROR_MESSAGE}`);
+        expect(() => coerce({}, FailingClassForTesting, errorMessage)).toThrowError(errorMessageRegex);
     });
 });
