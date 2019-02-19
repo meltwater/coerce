@@ -15,6 +15,6 @@ export default function coerce (value, Type, message) {
         return new Type(value);
     }
     catch (error) {
-        throw new TypeError(message);
+        throw new TypeError(`${message} Inner Error: ${error.message}`);
     }
 }
