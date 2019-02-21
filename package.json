@@ -32,7 +32,7 @@
     "babel-minify": "0.5.0",
     "babel-preset-env": "1.7.0",
     "documentation": "9.1.1",
-    "eslint": "5.12.1",
+    "eslint": "5.14.1",
     "is-docker": "1.1.0",
     "istanbul": "0.4.5",
     "istanbul-instrumenter-loader": "3.0.1",
