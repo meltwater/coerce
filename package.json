@@ -8,7 +8,7 @@
     "clean": "rm -rf cjs",
     "docs": "documentation build src/index.js -f md > docs/API.md",
     "postversion": "git push --follow-tags",
-    "pretest": "echo '****npm outdated current disabled ****' && npm audit && eslint src/",
+    "pretest": "npm outdated && echo '****npm audit currently disabled ****' && eslint src/",
     "test": "npm run build && JASMINE_CONFIG_PATH=jasmine.json istanbul cover --handle-sigint jasmine"
   },
   "repository": {
