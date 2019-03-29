@@ -43,6 +43,6 @@
     "karma-coverage-istanbul-reporter": "2.0.5",
     "karma-jasmine": "2.0.1",
     "karma-sourcemap-loader": "0.3.7",
-    "puppeteer": "1.12.2"
+    "puppeteer": "1.14.0"
   }
 }
