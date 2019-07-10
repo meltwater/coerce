@@ -15,7 +15,7 @@ pipeline:
     commands:
       - npm install
   test:
-    image: meltwaterlegion/node-headless-chrome
+    image: node:10
     commands:
       - npm test
   build:
