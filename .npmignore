@@ -9,12 +9,11 @@ scripts/
 npm-debug.log*
 .spec.js
 
+.babelrc
 .drone.yml
 CONTRIBUTING.md
 PULL_REQUEST_TEMPLATE.md
 webpack*
-karma.config.js
-jasmine.json
 .nvmrc
 .babelrc
 .eslint*

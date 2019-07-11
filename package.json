@@ -4,12 +4,12 @@
   "description": "A simple javascript package for type checking an object",
   "main": "cjs/index.js",
   "scripts": {
-    "build": "npm run clean && babel src --out-dir cjs/ --copy-files",
+    "build": "npm run clean && babel src --out-dir cjs/",
     "clean": "rm -rf cjs",
     "docs": "documentation build src/index.js -f md > docs/API.md",
     "postversion": "git push --follow-tags",
-    "pretest": "npm outdated && echo '****npm audit currently disabled ****' && eslint src/",
-    "test": "npm run build && JASMINE_CONFIG_PATH=jasmine.json istanbul cover --handle-sigint jasmine"
+    "pretest": "npm outdated && npm audit && eslint src/",
+    "test": "jest /src"
   },
   "repository": {
     "type": "git",
@@ -27,22 +27,11 @@
   },
   "homepage": "https://github.com/meltwater/coerce#readme",
   "devDependencies": {
-    "babel-cli": "6.26.0",
-    "babel-core": "6.26.3",
-    "babel-minify": "0.5.0",
-    "babel-preset-env": "1.7.0",
-    "documentation": "9.3.0",
-    "eslint": "5.15.0",
-    "is-docker": "1.1.0",
-    "istanbul": "0.4.5",
-    "istanbul-instrumenter-loader": "3.0.1",
-    "jasmine": "3.3.1",
-    "jasmine-core": "3.3.0",
-    "karma": "4.0.1",
-    "karma-chrome-launcher": "2.2.0",
-    "karma-coverage-istanbul-reporter": "2.0.5",
-    "karma-jasmine": "2.0.1",
-    "karma-sourcemap-loader": "0.3.7",
-    "puppeteer": "1.12.2"
+    "@babel/cli": "7.5.0",
+    "@babel/core": "7.5.4",
+    "@babel/preset-env": "7.5.4",
+    "documentation": "12.0.1",
+    "eslint": "6.0.1",
+    "jest": "24.8.0"
   }
 }
