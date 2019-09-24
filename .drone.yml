@@ -1,27 +1,45 @@
-pipeline:
-  install:
-    image: node:10
-    commands:
-      - npm install
-  test:
-    image: node:10
-    commands:
-      - npm test
-  build:
-    image: node:10
-    commands:
-      - npm run build
-    when:
-      event: tag
-  deploy:
-    image: node:10
-    commands:
-      - echo "//registry.npmjs.org/:_authToken=$${NPM_DEPLOY_TOKEN}" > ~/.npmrc
-      - echo "unsafe-perm=true" >> ~/.npmrc
-      - npm publish
-    secrets:
-      - npm_deploy_token
-    when:
-      event: tag
-      branch:
-        - include: [ v* ]
+---
+kind: pipeline
+name: default
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: install
+  pull: default
+  image: node:10
+  commands:
+  - npm install
+
+- name: test
+  pull: default
+  image: node:10
+  commands:
+  - npm test
+
+- name: build
+  pull: default
+  image: node:10
+  commands:
+  - npm run build
+  when:
+    event:
+    - tag
+
+- name: deploy
+  pull: default
+  image: node:10
+  commands:
+  - echo "//registry.npmjs.org/:_authToken=$${NPM_DEPLOY_TOKEN}" > ~/.npmrc
+  - echo "unsafe-perm=true" >> ~/.npmrc
+  - npm publish
+  environment:
+    NPM_DEPLOY_TOKEN:
+      from_secret: npm_deploy_token
+  when:
+    event:
+    - tag
+
+...
