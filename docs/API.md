@@ -24,7 +24,7 @@ Returns **any** Instance of provided Type
 
 ## coerceArray
 
-Validate an array of objects are an instance of the expected type, or is are a valid constructor object for the requested type
+Validate an array of objects are an instance of the expected type, or are a valid constructor object for the requested type
 
 ### Parameters
 

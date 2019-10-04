@@ -21,7 +21,7 @@ export function coerce (value, Type, message) {
 export default coerce;
 
 /**
- * Validate an array of objects are an instance of the expected type, or is are a valid constructor object for the requested type
+ * Validate an array of objects are an instance of the expected type, or are a valid constructor object for the requested type
  * @param {Array<*>} values - The array of values for validation
  * @param {*} Type - The type for instance of comparison
  * @param {string} message - The message to be displayed if coercion fails
