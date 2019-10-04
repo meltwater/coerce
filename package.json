@@ -9,7 +9,8 @@
     "docs": "documentation build src/index.js -f md > docs/API.md",
     "postversion": "git push --follow-tags",
     "pretest": "npm outdated && npm audit && eslint src/",
-    "test": "jest /src"
+    "test": "jest /src",
+    "test:live": "jest /src --watch"
   },
   "repository": {
     "type": "git",
