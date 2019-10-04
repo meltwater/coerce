@@ -1,4 +1,3 @@
-import * as CoerceModule from './index';
 import { coerce, coerceArray } from './index';
 
 const ERROR_MESSAGE = 'You failing the hardest';
