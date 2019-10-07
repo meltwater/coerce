@@ -4,6 +4,8 @@
 
 -   [coerce][1]
     -   [Parameters][2]
+-   [coerceArray][3]
+    -   [Parameters][4]
 
 ## coerce
 
@@ -13,17 +15,39 @@ Validate an object is an instance of the expected type, or is a valid constructo
 
 -   `value` **any** The value for validation
 -   `Type` **any** The type for instance of comparison
--   `message` **[string][3]** The message to be displayed if coercion fails
+-   `message` **[string][5]** The message to be displayed if coercion fails
 
 
--   Throws **[TypeError][4]** If the value is not coercable.
+-   Throws **[TypeError][6]** If the value is not coercable.
 
 Returns **any** Instance of provided Type
+
+## coerceArray
+
+Validate an array of objects are an instance of the expected type, or are a valid constructor object for the requested type
+
+### Parameters
+
+-   `values` **[Array][7]&lt;any>** The array of values for validation
+-   `Type` **any** The type for instance of comparison
+-   `message` **[string][5]** The message to be displayed if coercion fails
+
+
+-   Throws **[TypeError][6]** If values is not an array
+-   Throws **[TypeError][6]** One of the array values is not coercable.
+
+Returns **[Array][7]&lt;any>** Array of instances of provided Type
 
 [1]: #coerce
 
 [2]: #parameters
 
-[3]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[3]: #coercearray
 
-[4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypeError
+[4]: #parameters-1
+
+[5]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+
+[6]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypeError
+
+[7]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
