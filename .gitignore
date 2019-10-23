@@ -1,9 +1,7 @@
 .idea/
 .vscode/
 coverage/
-dist/
 node_modules/
-cjs/
 
 .DS_Store
 .screen_layout

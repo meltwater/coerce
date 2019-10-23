@@ -2,18 +2,16 @@
 coverage/
 docs/
 node_modules/
-src/
 scripts/
 
 .DS_Store
-npm-debug.log*
-.spec.js
-
-.babelrc
 .drone.yml
+.eslint*
+.nvmrc
+
+*.spec.js
+
 CONTRIBUTING.md
 PULL_REQUEST_TEMPLATE.md
+npm-debug.log*
 webpack*
-.nvmrc
-.babelrc
-.eslint*
