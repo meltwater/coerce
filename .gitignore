@@ -6,4 +6,5 @@ node_modules/
 cjs/
 
 .DS_Store
+.screen_layout
 npm-debug.log*
