@@ -10,7 +10,8 @@
     "postversion": "git push --follow-tags",
     "pretest": "npm outdated && npm audit && eslint src/",
     "test": "jest /src",
-    "test:live": "jest /src --watch"
+    "test:live": "jest /src --watch",
+    "update": "npx npm-check -uE"
   },
   "repository": {
     "type": "git",
@@ -28,9 +29,9 @@
   },
   "homepage": "https://github.com/meltwater/coerce#readme",
   "devDependencies": {
-    "@babel/cli": "7.6.2",
-    "@babel/core": "7.6.2",
-    "@babel/preset-env": "7.6.2",
+    "@babel/cli": "7.6.4",
+    "@babel/core": "7.6.4",
+    "@babel/preset-env": "7.6.3",
     "documentation": "12.1.2",
     "eslint": "6.5.1",
     "jest": "24.9.0"
