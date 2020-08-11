@@ -7,7 +7,7 @@
  * @throws {TypeError} - If the value is not coercable.
  */
 export function coerceParameter(value, Type, parameterName) {
-    return coerce(value, Type, `${parameterName} should be coerceable to ${Type.name}. Provided value: ${JSON.stringify(value, null, 2)}`)
+    return coerce(value, Type, `${parameterName} should be coerceable to ${Type.name}. Provided value: ${JSON.stringify(value, null, 2)}`);
 }
 
 /**
@@ -20,7 +20,7 @@ export function coerceParameter(value, Type, parameterName) {
  * @throws {TypeError} - One of the array values is not coercable.
  */
 export function coerceArrayParameter(values, Type, parameterName) {
-    return coerceArray(values, Type, `${parameterName} should be an Array of items coerceable to ${Type.name}. Provided value: ${JSON.stringify(values, null, 2)}`)
+    return coerceArray(values, Type, `${parameterName} should be an Array of items coerceable to ${Type.name}. Provided value: ${JSON.stringify(values, null, 2)}`);
 }
 
 /**
