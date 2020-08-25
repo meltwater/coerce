@@ -4,8 +4,12 @@
 
 -   [coerce][1]
     -   [Parameters][2]
--   [coerceArray][3]
+-   [coerce][3]
     -   [Parameters][4]
+-   [coerceArray][5]
+    -   [Parameters][6]
+-   [coerceArray][7]
+    -   [Parameters][8]
 
 ## coerce
 
@@ -15,10 +19,26 @@ Validate an object is an instance of the expected type, or is a valid constructo
 
 -   `value` **any** The value for validation
 -   `Type` **any** The type for instance of comparison
--   `message` **[string][5]** The message to be displayed if coercion fails
+-   `messageOrOptions` **[string][9]** The message to be displayed if coercion fails
 
 
--   Throws **[TypeError][6]** If the value is not coercable.
+-   Throws **[TypeError][10]** If the value is not coercable.
+
+Returns **any** Instance of provided Type
+
+## coerce
+
+Validate an object is an instance of the expected type, or is a valid constructor object for the requested type
+
+### Parameters
+
+-   `value` **any** The value for validation
+-   `Type` **any** The type for instance of comparison
+-   `messageOrOptions` **[object][11]** Options for coerce. See below
+    -   `messageOrOptions.parameterName` **[object][11]** The name of the parameter being coerced
+
+
+-   Throws **[TypeError][10]** If the value is not coercable.
 
 Returns **any** Instance of provided Type
 
@@ -28,26 +48,53 @@ Validate an array of objects are an instance of the expected type, or are a vali
 
 ### Parameters
 
--   `values` **[Array][7]&lt;any>** The array of values for validation
+-   `values` **[Array][12]&lt;any>** The array of values for validation
 -   `Type` **any** The type for instance of comparison
--   `message` **[string][5]** The message to be displayed if coercion fails
+-   `messageOrOptions` **[string][9]** The message to be displayed if coercion fails
 
 
--   Throws **[TypeError][6]** If values is not an array
--   Throws **[TypeError][6]** One of the array values is not coercable.
+-   Throws **[TypeError][10]** If values is not an array
+-   Throws **[TypeError][10]** One of the array values is not coercable.
 
-Returns **[Array][7]&lt;any>** Array of instances of provided Type
+Returns **[Array][12]&lt;any>** Array of instances of provided Type
+
+## coerceArray
+
+Validate an array of objects are an instance of the expected type, or are a valid constructor object for the requested type
+
+### Parameters
+
+-   `values` **[Array][12]&lt;any>** The array of values for validation
+-   `Type` **any** The type for instance of comparison
+-   `messageOrOptions` **[object][11]** Options for coerceArray. See below
+    -   `messageOrOptions.parameterName` **[object][11]** The name of the parameter being coerced
+
+
+-   Throws **[TypeError][10]** If values is not an array
+-   Throws **[TypeError][10]** One of the array values is not coercable.
+
+Returns **[Array][12]&lt;any>** Array of instances of provided Type
 
 [1]: #coerce
 
 [2]: #parameters
 
-[3]: #coercearray
+[3]: #coerce-1
 
 [4]: #parameters-1
 
-[5]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[5]: #coercearray
 
-[6]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypeError
+[6]: #parameters-2
 
-[7]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+[7]: #coercearray-1
+
+[8]: #parameters-3
+
+[9]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+
+[10]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypeError
+
+[11]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+
+[12]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array

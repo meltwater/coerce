@@ -1,21 +1,22 @@
-import { coerce, coerceArray } from './index';
+import { coerce, coerceArray, coerceArrayParameter, coerceParameter } from './index';
 
 const ERROR_MESSAGE = 'You failing the hardest';
-class FakeClassForTesting {}
+class FakeClassForTesting { }
 class FailingClassForTesting {
     constructor() {
         throw new Error(ERROR_MESSAGE);
     }
 }
+
 describe('coerce', () => {
     it('should be a function', () => {
         expect(coerce).toEqual(jasmine.any(Function));
     });
 
     it('should return value if it is an instanceof Type', () => {
-        const value = 'strings are fun';
+        const value = new FakeClassForTesting('strings are fun');
 
-        expect(coerce(value, String, '')).toEqual(value);
+        expect(coerce(value, FakeClassForTesting, '')).toBe(value);
     });
 
     it('should cast into the type and return Typed version', () => {
@@ -37,6 +38,15 @@ describe('coerce', () => {
         const errorMessageRegex = new RegExp(`${errorMessage}.*${ERROR_MESSAGE}`);
         expect(() => coerce({}, FailingClassForTesting, errorMessage)).toThrowError(errorMessageRegex);
     });
+
+    describe('with options object instead of message', () => {
+        it('should use parameter name in a more generic message', () => {
+            const parameterName = 'the best parameter';
+
+            const errorMessageRegex = new RegExp(`${parameterName}.*Provided value`);
+            expect(() => coerce({}, FailingClassForTesting, { parameterName })).toThrowError(errorMessageRegex);
+        });
+    });
 });
 
 describe('coerceArray', () => {
@@ -50,9 +60,9 @@ describe('coerceArray', () => {
 
     it('should coerce every value in the array', () => {
         const values = [
-            { hooray: 'yes'},
-            { oh: 'no'},
-            { OHHH: 'YEAHHH!!'}
+            { hooray: 'yes' },
+            { oh: 'no' },
+            { OHHH: 'YEAHHH!!' }
         ];
 
         const result = coerceArray(values, FakeClassForTesting, 'Yay!');
@@ -66,9 +76,18 @@ describe('coerceArray', () => {
 
     it('should throw if coercion fails', () => {
         const values = [
-            { hooray: 'yes'}
+            { hooray: 'yes' }
         ];
 
         expect(() => coerceArray(values, FailingClassForTesting, 'Yay!')).toThrow();
     });
+
+    describe('with options object instead of message', () => {
+        it('should use parameter name in a more generic message', () => {
+            const parameterName = 'the best parameter';
+
+            const errorMessageRegex = new RegExp(`${parameterName}.*Provided value`);
+            expect(() => coerce([{}], FailingClassForTesting, { parameterName })).toThrowError(errorMessageRegex);
+        });
+    })
 });

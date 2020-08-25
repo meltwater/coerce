@@ -9,19 +9,19 @@ platform:
 steps:
 - name: install
   pull: default
-  image: node:10
+  image: node:12
   commands:
   - npm install
 
 - name: test
   pull: default
-  image: node:10
+  image: node:12
   commands:
   - npm test
 
 - name: build
   pull: default
-  image: node:10
+  image: node:12
   commands:
   - npm run build
   when:
@@ -30,7 +30,7 @@ steps:
 
 - name: deploy
   pull: default
-  image: node:10
+  image: node:12
   commands:
   - echo "//registry.npmjs.org/:_authToken=$${NPM_DEPLOY_TOKEN}" > ~/.npmrc
   - echo "unsafe-perm=true" >> ~/.npmrc
