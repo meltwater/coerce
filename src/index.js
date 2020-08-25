@@ -10,7 +10,7 @@
  * Validate an object is an instance of the expected type, or is a valid constructor object for the requested type
  * @param {*} value - The value for validation
  * @param {*} Type - The type for instance of comparison
- * @param {object} messageOrOptions - Options for coerce. See below
+ * @param {string|object} messageOrOptions - Options for coerce. See below
  * @param {object} messageOrOptions.parameterName - The name of the parameter being coerced
  * @returns {*} - Instance of provided Type
  * @throws {TypeError} - If the value is not coercable.
