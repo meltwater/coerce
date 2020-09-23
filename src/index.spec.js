@@ -13,9 +13,9 @@ describe('coerce', () => {
     });
 
     it('should return value if it is an instanceof Type', () => {
-        const value = 'strings are fun';
+        const value = new FakeClassForTesting();
 
-        expect(coerce(value, String, '') == value).toBe(value);
+        expect(coerce(value, FakeClassForTesting, '')).toBe(value);
     });
 
     it('should cast into the type and return Typed version', () => {
