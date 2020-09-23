@@ -1,7 +1,7 @@
 import { coerce, coerceArray } from './index';
 
 const ERROR_MESSAGE = 'You failing the hardest';
-class FakeClassForTesting {}
+class FakeClassForTesting { }
 class FailingClassForTesting {
     constructor() {
         throw new Error(ERROR_MESSAGE);
@@ -13,9 +13,9 @@ describe('coerce', () => {
     });
 
     it('should return value if it is an instanceof Type', () => {
-        const value = 'strings are fun';
+        const value = new FakeClassForTesting();
 
-        expect(coerce(value, String, '')).toEqual(value);
+        expect(coerce(value, FakeClassForTesting, '')).toBe(value);
     });
 
     it('should cast into the type and return Typed version', () => {
@@ -50,9 +50,9 @@ describe('coerceArray', () => {
 
     it('should coerce every value in the array', () => {
         const values = [
-            { hooray: 'yes'},
-            { oh: 'no'},
-            { OHHH: 'YEAHHH!!'}
+            { hooray: 'yes' },
+            { oh: 'no' },
+            { OHHH: 'YEAHHH!!' }
         ];
 
         const result = coerceArray(values, FakeClassForTesting, 'Yay!');
@@ -66,7 +66,7 @@ describe('coerceArray', () => {
 
     it('should throw if coercion fails', () => {
         const values = [
-            { hooray: 'yes'}
+            { hooray: 'yes' }
         ];
 
         expect(() => coerceArray(values, FailingClassForTesting, 'Yay!')).toThrow();
