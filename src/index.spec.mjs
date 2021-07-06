@@ -1,4 +1,4 @@
-import { coerce, coerceArray } from './index';
+import { coerce, coerceArray } from './index.mjs';
 
 const ERROR_MESSAGE = 'You failing the hardest';
 class FakeClassForTesting { }

@@ -3,15 +3,15 @@
   "version": "0.3.0",
   "description": "A simple javascript package for type checking an object",
   "main": "cjs/index.js",
-  "module": "src/index.js",
+  "module": "src/index.mjs",
   "scripts": {
-    "build": "npm run clean && babel src --out-dir cjs/",
+    "build": "scripts/build",
     "clean": "rm -rf cjs",
     "docs": "documentation build src/index.js -f md > docs/API.md",
-    "postversion": "git push --follow-tags",
-    "pretest": "npm outdated && npm audit && eslint src/",
-    "test": "jest /src",
-    "test:live": "jest /src --watch",
+    "postversion": "scripts/postversion-checks && git push --follow-tags",
+    "pretest": "npm outdated && scripts/audit && eslint --ext js,mjs src/",
+    "test": "scripts/test",
+    "test:live": "nodemon -x 'scripts/test' -w js,json --watch src/",
     "update": "npx npm-check -uE"
   },
   "repository": {
@@ -35,6 +35,8 @@
     "@babel/preset-env": "7.14.7",
     "documentation": "13.2.5",
     "eslint": "7.30.0",
-    "jest": "26.4.2"
-  }
+    "jasmine": "3.8.0",
+    "nodemon": "2.0.9"
+  },
+  "dependencies": {}
 }

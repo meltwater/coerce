@@ -1,0 +1,35 @@
+#!/usr/bin/env node
+const { execSync } = require('child_process');
+const {
+    existsSync,
+    readFileSync
+} = require('fs');
+
+const UNIGNORED_VULNS_FOUND_EXIT_CODE = 1;
+const IGNORE_FILE = './.auditignore';
+
+function execJson (command) {
+    return JSON.parse(execSync(command));
+}
+
+let ignorePackages = [];
+if (existsSync(IGNORE_FILE)) {
+    ignorePackages = readFileSync(IGNORE_FILE).toString().split('\n').filter(line => line.match(/\w/));
+}
+
+if (ignorePackages.length > 0) {
+    console.warn(`Ignoring vulnerabilities in the following packages:
+
+* ${ignorePackages.join('\n* ')}
+
+Review 'npm audit' to determine if any can be resolved.`);
+}
+
+const audit = execJson('npm audit --audit-level critical --json');
+const openVulnerabiltyCount = audit.actions.filter(({ module }) => !ignorePackages.includes(module)).length;
+
+if (openVulnerabiltyCount > 0) {
+    process.exitCode = UNIGNORED_VULNS_FOUND_EXIT_CODE;
+    console.error(`There are ${openVulnerabiltyCount} unignored vulnerabilities.
+Run 'npm audit' for more details.`);
+}

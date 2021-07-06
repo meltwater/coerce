@@ -1,0 +1,12 @@
+#!/bin/bash
+set -e
+
+if [ $(node -p "require('./package.json').version.split('.')[0]") != 0 ]; then
+    echo "******************************************************************************"
+    echo "* Congratulations on reaching version 1.0!"
+    echo "* There's something you have to do first though."
+    echo "* Remove the deprecated scripts/build step and then clean up postversion check"
+    echo "******************************************************************************"
+
+    exit 1
+fi
