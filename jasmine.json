@@ -1,0 +1,9 @@
+{
+    "jsLoader": "import",
+    "helper paths are relative to": "spec_dir",
+    "spec_dir": "./src",
+    "spec_files": [
+      "**/*.spec.js",
+      "**/*.spec.mjs"
+    ]
+}

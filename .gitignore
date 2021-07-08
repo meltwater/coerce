@@ -5,5 +5,8 @@ dist/
 node_modules/
 cjs/
 
+src/index.js
+
 .DS_Store
+.screen_layout
 npm-debug.log*
