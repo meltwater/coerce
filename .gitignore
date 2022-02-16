@@ -4,6 +4,7 @@ coverage/
 dist/
 node_modules/
 cjs/
+types/
 
 src/index.js
 

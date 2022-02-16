@@ -2,10 +2,10 @@
 
 ### Table of Contents
 
--   [coerce][1]
-    -   [Parameters][2]
--   [coerceArray][3]
-    -   [Parameters][4]
+*   [coerce][1]
+    *   [Parameters][2]
+*   [coerceArray][3]
+    *   [Parameters][4]
 
 ## coerce
 
@@ -13,12 +13,13 @@ Validate an object is an instance of the expected type, or is a valid constructo
 
 ### Parameters
 
--   `value` **any** The value for validation
--   `Type` **any** The type for instance of comparison
--   `message` **[string][5]** The message to be displayed if coercion fails
+*   `value` **any** The value for validation
+*   `Type` **any** The type for instance of comparison
+*   `message` **[string][5]** The message to be displayed if coercion fails
 
+<!---->
 
--   Throws **[TypeError][6]** If the value is not coercable.
+*   Throws **[TypeError][6]** If the value is not coercable.
 
 Returns **any** Instance of provided Type
 
@@ -28,15 +29,16 @@ Validate an array of objects are an instance of the expected type, or are a vali
 
 ### Parameters
 
--   `values` **[Array][7]&lt;any>** The array of values for validation
--   `Type` **any** The type for instance of comparison
--   `message` **[string][5]** The message to be displayed if coercion fails
+*   `values` **[Array][7]\<any>** The array of values for validation
+*   `Type` **any** The type for instance of comparison
+*   `message` **[string][5]** The message to be displayed if coercion fails
 
+<!---->
 
--   Throws **[TypeError][6]** If values is not an array
--   Throws **[TypeError][6]** One of the array values is not coercable.
+*   Throws **[TypeError][6]** If values is not an array
+*   Throws **[TypeError][6]** One of the array values is not coercable.
 
-Returns **[Array][7]&lt;any>** Array of instances of provided Type
+Returns **[Array][7]\<any>** Array of instances of provided Type
 
 [1]: #coerce
 

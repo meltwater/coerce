@@ -4,14 +4,16 @@
   "description": "A simple javascript package for type checking an object",
   "main": "cjs/index.js",
   "module": "src/index.mjs",
+  "types": "./types/index.d.ts",
   "scripts": {
     "build": "scripts/build",
     "clean": "rm -rf cjs",
-    "docs": "documentation build src/index.js -f md > docs/API.md",
+    "docs": "npx documentation build src/index.js -f md > docs/API.md",
     "postversion": "scripts/postversion-checks && git push --follow-tags",
     "pretest": "npm outdated && scripts/audit && eslint --ext js,mjs src/",
     "test": "scripts/test",
     "test:live": "nodemon -x 'scripts/test' -w js,json --watch src/",
+    "types": "npx --package=typescript tsc src/index.js --declaration --allowJs --emitDeclarationOnly --outDir types",
     "update": "npx npm-check -uE"
   },
   "repository": {
@@ -30,13 +32,11 @@
   },
   "homepage": "https://github.com/meltwater/coerce#readme",
   "devDependencies": {
-    "@babel/cli": "7.14.5",
-    "@babel/core": "7.14.6",
-    "@babel/preset-env": "7.14.7",
-    "documentation": "13.2.5",
-    "eslint": "7.30.0",
-    "jasmine": "3.8.0",
-    "nodemon": "2.0.9"
-  },
-  "dependencies": {}
+    "@babel/cli": "7.17.3",
+    "@babel/core": "7.17.4",
+    "@babel/preset-env": "7.16.11",
+    "eslint": "8.9.0",
+    "jasmine": "4.0.2",
+    "nodemon": "2.0.15"
+  }
 }
