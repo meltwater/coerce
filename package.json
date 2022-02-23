@@ -8,6 +8,7 @@
   "scripts": {
     "build": "scripts/build",
     "clean": "rm -rf cjs",
+    "demo": "node demo/index.mjs",
     "docs": "npx documentation readme src/index.mjs --section 'API Reference'",
     "postversion": "scripts/postversion-checks && git push --follow-tags",
     "pretest": "npm outdated && scripts/audit && eslint --ext js,mjs src/",
