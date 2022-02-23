@@ -1,9 +1,15 @@
 /**
- * Validate an object is an instance of the expected type, or is a valid constructor object for the requested type
- * @param {*} value - The value for validation
- * @param {*} Type - The type for instance of comparison
- * @param {string} message - The message to be displayed if coercion fails
+ * If `value` is an instance of `Type`, this function returns it.
+ * Otherwise this function attempts to construct a new instance
+ * `Type` using `value` as a constructor parameter.
+ *
+ * @summary Return an object as an instance of the type, provided.
+ *
+ * @param {*} value - The value to coerce
+ * @param {*} Type - The type to return the object as.
+ * @param {string} message - The error message if coercion fails
  * @returns {*} - Instance of provided Type
+ *
  * @throws {TypeError} - If the value is not coercable.
  */
 export function coerce (value, Type, message) {
@@ -21,12 +27,14 @@ export function coerce (value, Type, message) {
 export default coerce;
 
 /**
- * Validate an array of objects are an instance of the expected type, or are a valid constructor object for the requested type
- * @param {Array<*>} values - The array of values for validation
- * @param {*} Type - The type for instance of comparison
- * @param {string} message - The message to be displayed if coercion fails
- * @returns {Array<*>} - Array of instances of provided Type
- * @throws {TypeError} - If values is not an array
+ * Apply `coerce` to an array for a single type.
+ *
+ * @param {Array<*>} values - The array of values to coerce
+ * @param {*} Type - The type each object should be
+ * @param {string} message - The error message if coercion fails
+ * @returns {Array<*>} - Array of instances of provided `Type`
+ *
+ * @throws {TypeError} - If `values` is not an array
  * @throws {TypeError} - One of the array values is not coercable.
  */
 export function coerceArray (values, Type, message) {
