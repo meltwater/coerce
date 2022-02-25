@@ -7,3 +7,6 @@ babel src --out-dir cjs/
 # index.js is the former `module` value in the package.json
 # it is left here for backward-compatability until v1
 cp src/index.mjs src/index.js
+
+npm run docs
+npm run types
