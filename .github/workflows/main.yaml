@@ -1,0 +1,6 @@
+name: CI Pipeline
+on: [push]
+jobs:
+  legion-npm-pipeline:
+    uses: meltwater/legion-github-repos/.github/workflows/legion-npm-package.yml@master
+    secrets: inherit
