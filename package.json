@@ -11,7 +11,7 @@
     "demo": "node demo/index.mjs",
     "docs": "npx documentation readme src/index.mjs --section 'API Reference'",
     "postversion": "scripts/postversion-checks && git push --follow-tags",
-    "pretest": "npm outdated && npm audit && eslint --ext js,mjs src/",
+    "pretest": "npm outdated && npm audit && eslint src/",
     "test": "scripts/test",
     "test:live": "nodemon -x 'scripts/test' -w js,json --watch src/",
     "types": "npx --package=typescript tsc src/index.mjs --declaration --allowJs --emitDeclarationOnly --outDir types",
@@ -33,11 +33,15 @@
   },
   "homepage": "https://github.com/meltwater/coerce#readme",
   "devDependencies": {
-    "@babel/cli": "7.17.6",
-    "@babel/core": "7.17.5",
-    "@babel/preset-env": "7.16.11",
-    "eslint": "8.9.0",
-    "jasmine": "4.0.2",
-    "nodemon": "2.0.15"
+    "@babel/cli": "7.25.9",
+    "@babel/core": "7.26.0",
+    "@babel/preset-env": "7.26.0",
+    "@eslint/js": "9.13.0",
+    "eslint": "9.13.0",
+    "eslint-plugin-depend": "0.11.0",
+    "eslint-plugin-jsdoc": "50.4.3",
+    "globals": "15.11.0",
+    "jasmine": "5.4.0",
+    "nodemon": "3.1.7"
   }
 }
